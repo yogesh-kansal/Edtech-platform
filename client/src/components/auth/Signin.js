@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
 import auth from './../auth/auth-helper';
 import { Navigate, useLocation } from 'react-router-dom';
 import { signin } from './api-auth.js';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import ErrorIcon from '@mui/icons-material/Error'
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -96,15 +92,15 @@ export default function Signin(props) {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 15,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
-          </Avatar>
+          </Avatar> */}
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
@@ -125,7 +121,6 @@ export default function Signin(props) {
               value={values.email}
               onChange={handleChange('email')}
               autoComplete="email"
-              autoFocus
             />
             <TextField
               margin="normal"
@@ -139,12 +134,21 @@ export default function Signin(props) {
               onChange={handleChange('password')}
               autoComplete="current-password"
             />
+            <br />{' '}
+              {values.error && (
+                <Typography component="p" color="error" textAlign="center">
+                  <Icon color="error" className={classes.error}>
+                    <ErrorIcon/>
+                  </Icon>
+                  {values.error}
+                </Typography>
+              )}
 
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 1, mb: 2 }}
             >
               Sign In
             </Button>

@@ -5,8 +5,8 @@ const app = require("./app");
 
 console.log("Starting app..");
 console.log("Waiting for connection to MongoDB");
-
-const PORT = config.PORT || 3000;
+console.log(config)
+const PORT = config.PORT;
 
 mongoose
   .connect(config.dburl, {
