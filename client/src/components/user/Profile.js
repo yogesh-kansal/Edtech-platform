@@ -1,19 +1,8 @@
 // eslint-disable-next-line react-hooks/exhaustive-deps
 import './user.css';
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import Edit from '@material-ui/icons/Edit';
-import Person from '@material-ui/icons/Person';
-import Divider from '@material-ui/core/Divider';
 import DeleteUser from './DeleteUser';
 import auth from './../auth/auth-helper';
 import { read } from './api-user.js';
@@ -36,12 +25,7 @@ import Box from '@mui/material/Box';
 
 export default function Profile({ match }) {
   //const classes = useStyles();
-  const [user, setUser] = useState({
-    _id: '',
-    name: '',
-    email: '',
-    created: '',
-  });
+  const [user, setUser] = useState({});
 
   const [redirectToSignin, setRedirectToSignin] = useState(false);
   const jwt = auth.isAuthenticated();
@@ -52,7 +36,6 @@ export default function Profile({ match }) {
 
     read(
       {
-        // ,
         userId,
       },
       { t: jwt.token },
@@ -61,7 +44,8 @@ export default function Profile({ match }) {
       if (data && data.error) {
         setRedirectToSignin(true);
       } else {
-        //setUser(data);
+        console.log(data);
+        setUser(data);
       }
     });
 
@@ -76,7 +60,9 @@ export default function Profile({ match }) {
   return (
     <div className="ProfilePage">
       <Container maxWidth="sm">
-        <Box sx={{}}>
+        <Box sx={{
+          marginTop: 13,
+        }}>
           <div
             className="clearfix"
             style={{ boxShadow: '0 0 12px 3px rgba(0, 0, 0, 0.08)' }}
@@ -100,21 +86,21 @@ export default function Profile({ match }) {
                       alt="random-image"
                     />
                   </div>
-                  <h5 className="card-title">{user.name}</h5>
+                  <h5 className="card-title">{user?.name}</h5>
                   <p className="card-text">
-                    {user.email}
+                    {user?.email}
                     <br />
                     <span className="phone">
-                      {'Joined on: ' + new Date(user.created).toDateString()}
+                      {'Joined on: ' + new Date(user?.created).toDateString()}
                     </span>
                   </p>
 
-                  <Link to={'/user/edit/' + user._id}>
+                  <Link to={'/user/edit/' + user?._id}>
                     <IconButton aria-label="Edit" color="primary">
                       <Edit />
                     </IconButton>
                   </Link>
-                  <DeleteUser userId={user._id} />
+                  <DeleteUser userId={user?._id} />
                 </div>
               </div>
             </div>

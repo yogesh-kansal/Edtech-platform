@@ -5,9 +5,9 @@ import Home from './components/core/Home';
 // import Users from './components/user/Users';
 import Signup from './components/user/Signup';
 import Signin from './components/auth/Signin';
-// import EditProfile from './components/user/EditProfile';
-// import Profile from './components/user/Profile';
-// import PrivateRoute from './components/auth/PrivateRoute';
+import EditProfile from './components/user/EditProfile';
+import Profile from './components/user/Profile';
+import ProtectedRoute from './components/auth/PrivateRoute';
 import Menu from './components/core/Menu.js';
 // import NewCourse from './components/course/NewCourse';
 //import Courses from './course/Courses'
@@ -17,7 +17,6 @@ import Course from './components/course/Course'
 // import Enrollment from './components/enrollment/Enrollment';
 
 function App() {
-  console.log(theme);
   return (
     <div>
       {/* {' '} */}
@@ -28,8 +27,13 @@ function App() {
         {/*<Route path="/users" component={Users} /> */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
-        {/* <PrivateRoute path="/user/edit/:userId" component={EditProfile} />
-        <Route path="/user/:userId" component={Profile} />*/}
+        <Route path="/user/edit/:userId" element={
+          <ProtectedRoute>
+            <EditProfile />
+          </ProtectedRoute>
+        }/>
+        {/* <PrivateRoute path="/user/edit/:userId" element={<EditProfile/>} /> */}
+        <Route path="/user/:userId" element={<Profile/>} />
         {/* <Route path="/course/:courseId" component={Course} /> */}
         {/*<PrivateRoute path="/teach/courses" component={MyCourses} />
 

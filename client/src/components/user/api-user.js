@@ -1,6 +1,6 @@
 const create = async (user) => {
   try {
-      let response = await fetch('http://localhost:3001/api/users/', {
+      let response = await fetch('/api/users/', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -46,7 +46,7 @@ const read = async (params, credentials, signal) => {
 const update = async (params, credentials, user) => {
   try {
     let response = await fetch('/api/users/' + params.userId, {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
