@@ -80,7 +80,7 @@ export default function MyCourses() {
     const signal = abortController.signal;
     listByInstructor(
       {
-        //userId: jwt.user._id,
+        userId: jwt.user._id,
       },
       { t: jwt.token },
       signal
@@ -120,15 +120,11 @@ export default function MyCourses() {
         <List dense>
           {courses.map((course, i) => {
             return (
-              <Link to={'/teach/course/' + course._id} key={i}>
+              <Link to={'/teach/course/' + course._id} key={i} style={{textDecoration: 'none'}}>
                 <ListItem button>
                   <ListItemAvatar>
                     <Avatar
-                      src="https://picsum.photos/200"
-                      // '/api/courses/photo/' +
-                      // course._id +
-                      // '?' +
-                      // new Date().getTime()
+                      src={"/api/courses/photo/" + course._id + '?'  + new Date().getTime()}
 
                       className={classes.avatar}
                     />
