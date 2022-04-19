@@ -10,7 +10,7 @@ const userRouter = require("./routes/userRoutes");
 const courseRouter = require("./routes/courseRoutes");
 const enrollmentRouter = require("./routes/enrollmentRoutes");
 
-const AppError = require("./utils/appError");
+const AppError = require("./utils/AppError");
 
 app.use(express.json({ limit: "10kb" }));
 app.use(logger('dev')); 

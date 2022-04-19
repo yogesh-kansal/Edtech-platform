@@ -27,6 +27,8 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Enroll from './../enrollment/Enroll'
 
+import logo from '../../assets/images/course.png'
+
 const useStyles = makeStyles(theme => ({
     root: theme.mixins.gutters({
         maxWidth: 800,
@@ -166,7 +168,7 @@ export default function Course ({match}) {
   }
     const imageUrl = course._id
           ? `/api/courses/photo/${course._id}?${new Date().getTime()}`
-          : ''
+          : logo
     return (
         <div className={classes.root}>
               <Card className={classes.card}>

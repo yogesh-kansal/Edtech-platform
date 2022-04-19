@@ -24,6 +24,8 @@ import CheckCircle from '@material-ui/icons/CheckCircle';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import { CardContent } from '@material-ui/core';
 
+import logo from '../../assets/images/course.png'
+
 const useStyles = makeStyles((theme) => ({
   root: theme.mixins.gutters({
     maxWidth: 800,
@@ -195,7 +197,7 @@ export default function Enrollment({ match }) {
   };
   const imageUrl = enrollment.course._id
     ? `/api/courses/photo/${enrollment.course._id}?${new Date().getTime()}`
-    : '';
+    : logo;
   return (
     <div className={classes.root}>
       <Drawer

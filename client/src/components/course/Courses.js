@@ -71,38 +71,22 @@ export default function Courses(props){
                   component="img"
                   alt={course?.name}
                   height="180"
-                  //image={`/api/courses/photo/'+${course._id}`}
-                  image={logo}
+                  image={`/api/courses/photo/'${course._id}`}
+                  //image={logo}
                />
                </Link>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  Lizard {course?.name}
+                  {course?.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {course?.category}Lizards are a widespread group of squamate reptiles, with over 6,000
-                      species, ranging across all continents except Antarctica
+                    {course?.category}
                 </Typography>
               </CardContent>
               <CardActions>
-                {/* <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button> */}
                 <Enroll courseId={course._id}/>
                </CardActions>
               </Card>
-
-              {/* <GridListTile className={classes.tile} key={i} style={{padding:0}}>
-                <Link to={"/course/"+course._id}><img className={classes.image} src={'/api/courses/photo/'+course._id} alt={course.name} /></Link>
-                <GridListTileBar className={classes.tileBar}
-                  title={<Link to={"/course/"+course._id} className={classes.tileTitle}>{course.name}</Link>}
-                  subtitle={<span>{course.category}</span>}
-                  actionIcon={
-                    <div className={classes.action}>
-                    {auth.isAuthenticated() ? <Enroll courseId={course._id}/> : <Link to="/signin">Sign in to Enroll</Link>}
-                    </div>
-                  }
-                />
-              </GridListTile> */}
               </Grid>
               )}
           )}

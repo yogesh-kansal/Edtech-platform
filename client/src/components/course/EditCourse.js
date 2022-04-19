@@ -21,6 +21,8 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import auth from './../auth/auth-helper';
 import Divider from '@material-ui/core/Divider';
 
+import logo from '../../assets/images/course.png'
+
 const useStyles = makeStyles((theme) => ({
   root: theme.mixins.gutters({
     maxWidth: 800,
@@ -162,7 +164,7 @@ export default function EditCourse({ match }) {
   }
   const imageUrl = course._id
     ? `/api/courses/photo/${course._id}?${new Date().getTime()}`
-    : '/api/courses/defaultphoto';
+    : logo;
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
