@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
 import { create } from './api-user.js';
@@ -10,20 +7,17 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import { useNavigate } from 'react-router-dom';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import ErrorIcon from '@mui/icons-material/Error'
 
 const theme = createTheme();
 
@@ -51,6 +45,9 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     marginBottom: theme.spacing(2),
   },
+  link: {
+    textDecoration: "none"
+  }
 }));
 
 export default function Signup() {
@@ -92,15 +89,12 @@ export default function Signup() {
           <CssBaseline />
           <Box
             sx={{
-              marginTop: 8,
+              marginTop: 15,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
-            </Avatar>
             <Typography component="h1" variant="h5">
               Sign up
             </Typography>
@@ -121,7 +115,6 @@ export default function Signup() {
                     label="Name"
                     value={values.name}
                     onChange={handleChange('name')}
-                    autoFocus
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -149,20 +142,12 @@ export default function Signup() {
                     autoComplete="new-password"
                   />
                 </Grid>
-                <Grid item xs={12}>
-                  <FormControlLabel
-                    control={
-                      <Checkbox value="allowExtraEmails" color="primary" />
-                    }
-                    label="I want to receive inspiration, marketing promotions and updates via email."
-                  />
-                </Grid>
               </Grid>
               <br />{' '}
               {values.error && (
-                <Typography component="p" color="error">
+                <Typography component="p" color="error" textAlign="center">
                   <Icon color="error" className={classes.error}>
-                    error
+                    <ErrorIcon/>
                   </Icon>
                   {values.error}
                 </Typography>
@@ -171,7 +156,7 @@ export default function Signup() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 1, mb: 2 }}
               >
                 Sign Up
               </Button>
@@ -182,7 +167,7 @@ export default function Signup() {
                 justifyContent="center"
               >
                 <Grid item>
-                  <Link href="/signin" variant="body2">
+                  <Link href="/signin" variant="body2" className={classes.link}>
                     Already have an account? Sign in
                   </Link>
                 </Grid>
