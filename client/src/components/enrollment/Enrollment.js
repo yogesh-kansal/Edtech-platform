@@ -50,6 +50,8 @@ const useStyles = makeStyles((theme) => ({
   },
   details: {
     margin: '16px',
+    marginLeft: 'auto',
+    marginRight: '5px'
   },
   sub: {
     display: 'block',
@@ -298,6 +300,10 @@ export default function Enrollment({ match }) {
               className={classes.media}
               image={imageUrl}
               title={enrollment.course.name}
+              style={{
+                width: '200px',
+                minWidth: '200px'
+              }}
             />
             <div className={classes.details}>
               <Typography variant="body1" className={classes.subheading}>
