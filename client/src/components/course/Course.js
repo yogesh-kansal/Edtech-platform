@@ -17,7 +17,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { read, update } from './api-course.js';
 import { enrollmentStats } from './../enrollment/api-enrollment';
 import Link from '@mui/material/Link';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams, useNavigate } from 'react-router-dom';
 import auth from './../auth/auth-helper';
 import DeleteCourse from './DeleteCourse';
 import Divider from '@material-ui/core/Divider';
@@ -98,6 +98,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Course({ match }) {
   const classes = useStyles();
   const [stats, setStats] = useState({});
+  const navigate = useNavigate();
   const [course, setCourse] = useState({ instructor: {} });
   const [values, setValues] = useState({
     redirect: false,
@@ -231,11 +232,11 @@ export default function Course({ match }) {
               {auth.isAuthenticated().user &&
                 auth.isAuthenticated().user._id == course.instructor._id && (
                   <span className={classes.action}>
-                    <Link to={'/teach/course/edit/' + course._id}>
-                      <IconButton aria-label="Edit" color="secondary">
-                        <Edit />
-                      </IconButton>
-                    </Link>
+                    {/* <Link to={'/teach/course/edit/' + course._id}> */}
+                      <Button aria-label="Edit" color="secondary" onClick={()=> {console.log("fncne ");navigate('/teach/course/edit/' + course._id)}}>
+                        <Edit/>
+                      </Button>
+                    {/* </Link> */}
                     {!course.published ? (
                       <>
                         <Button
