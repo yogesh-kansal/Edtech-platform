@@ -205,7 +205,7 @@ export default function EditCourse({ match }) {
               <span className={classes.action}>
                 <Button
                   variant="contained"
-                  color="secondary"
+                  color="primary"
                   onClick={clickSubmit}
                 >
                   Save

@@ -13,7 +13,7 @@ router.route('/by/:userId')
   .get(authCtrl.requireSignin, authCtrl.hasAuthorization, courseCtrl.listByInstructor)
 
 router.route('/photo/:courseId')
-  .get(courseCtrl.photo)
+  .get(courseCtrl.photo, courseCtrl.defaultPhoto)
 
 router.route('/defaultphoto')
   .get(courseCtrl.defaultPhoto)

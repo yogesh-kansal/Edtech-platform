@@ -5,6 +5,7 @@ const errorHandler = require('../helpers/dbErrorHandler');
 const formidable = require('formidable');
 //const defaultImage = require('../utils/default.png');
 
+console.log(process.cwd()+'/client/assets/images/course.png')
 exports.create = (req, res) => {
   let form = new formidable.IncomingForm()
   form.keepExtensions = true
@@ -160,11 +161,9 @@ exports.photo = (req, res, next) => {
     res.set("Content-Type", req.course.image.contentType)
     return res.send(req.course.image.data)
   }
-  else {
-    return res.send("");
-  }
+  next();
 }
 exports.defaultPhoto = (req, res) => {
-  return res.sendFile(process.cwd()+defaultImage)
+  return res.sendFile(process.cwd()+'/client/src/assets/images/course.png')
 }
 

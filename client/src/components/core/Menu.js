@@ -64,9 +64,8 @@ const Menu = () => {
           <Link to={"/user/" + auth.isAuthenticated().user._id} style={{textDecoration: 'none'}}>
             <Button style={isActive(location, "/user/" + auth.isAuthenticated().user._id)}>My Profile</Button>
           </Link>
-          <Button color="inherit" onClick={() => {
-              auth.clearJWT(() => navigate('/'))
-            }}>Sign out</Button>
+          <Button style={{color: '#fff'}} onClick={() => {
+              auth.clearJWT(() => window.location.href="/")}}>Sign out</Button>
         </span>)
       }
       </span></div>

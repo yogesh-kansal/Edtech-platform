@@ -34,7 +34,7 @@ export default function DeleteCourse(props) {
     setOpen(false)
   }
     return (<span>
-      <IconButton aria-label="Delete" onClick={clickButton} color="secondary">
+      <IconButton aria-label="Delete" onClick={clickButton} color="primary">
         <DeleteIcon/>
       </IconButton>
 

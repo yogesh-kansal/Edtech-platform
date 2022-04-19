@@ -66,12 +66,12 @@ export default function Courses(props){
             return (  findCommon(course) &&      
             <Grid item xs={12} md={3} sm={4} key={i}>
               <Card sx={{ maxWidth: 345 }}>
-              <Link to={`/course/${1}`} className={classes.link}>
+              <Link to={`/course/${course._id}`} className={classes.link}>
                 <CardMedia
                   component="img"
                   alt={course?.name}
                   height="180"
-                  image={`/api/courses/photo/'${course._id}`}
+                  image={`/api/courses/photo/${course._id}`}
                   //image={logo}
                />
                </Link>
