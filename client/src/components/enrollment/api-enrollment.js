@@ -47,6 +47,8 @@ const create = async (params, credentials) => {
   }
   
   const read = async (params, credentials, signal) => {
+    console.log(params.enrollmentId)
+
     try {
       let response = await fetch('/api/enrollment/' + params.enrollmentId, {
         method: 'GET',

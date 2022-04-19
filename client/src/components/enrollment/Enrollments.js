@@ -40,7 +40,7 @@ export default function Enrollments(props){
               <Link to={`/learn/${course._id}`} className={classes.link}>
               <Card sx={{ maxWidth: 345 }}>
               <CardHeader
-                title="Lizard"
+                title={course.name}
                 subheader={course?.completed ? "Completed" : "In progress"}
                 className={classes.head}
                 varient="h3;km"
@@ -49,8 +49,8 @@ export default function Enrollments(props){
                   component="img"
                   alt={course?.course?.name}
                   height="200"
-                  image={logo}
-                  //src={`/api/courses/photo/'+&{course._id}`}
+                  //image={logo}
+                  src={`/api/courses/photo/'+&{course._id}`}
                />
               
               </Card>

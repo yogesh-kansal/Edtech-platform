@@ -181,12 +181,12 @@ export default function Course ({match}) {
              {auth.isAuthenticated().user && auth.isAuthenticated().user._id == course.instructor._id &&
                 (<span className={classes.action}>
                   <Link to={"/teach/course/edit/" + course._id}>
-                    <IconButton aria-label="Edit" color="secondary">
+                    <IconButton aria-label="Edit" color="primary">
                       <Edit/>
                     </IconButton>
                   </Link>
                 {!course.published ? (<>
-                  <Button color="secondary" variant="outlined" onClick={clickPublish}>{course.lessons.length == 0 ? "Add atleast 1 lesson to publish" : "Publish"}</Button>
+                  <Button color="primary" variant="outlined" onClick={clickPublish}>{course.lessons.length == 0 ? "Add atleast 1 lesson to publish" : "Publish"}</Button>
                   <DeleteCourse course={course} onRemove={removeCourse}/>
                 </>) : (
                   <Button color="primary" variant="outlined">Published</Button>
@@ -259,7 +259,7 @@ export default function Course ({match}) {
                 <Button onClick={handleClose} color="primary" variant="contained">
                   Cancel
                 </Button>
-                <Button onClick={publish} color="secondary" variant="contained">
+                <Button onClick={publish} color="primary" variant="contained">
                   Publish
                 </Button>
               </DialogActions>
