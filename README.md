@@ -43,7 +43,7 @@ Bootstrap5
 ## Demo images
 ### Home page -
 <p align="center">
-<img src="./demoImages/home.png"
+<img src="./demoImages/home.jpeg"
   alt="home"
   width="716" height="410" style="border-style: solid">
 </p>
@@ -52,7 +52,7 @@ Bootstrap5
 
 ### Course description -
 <p align="center">
-<img src="./demoImages/courseDesc.png"
+<img src="./demoImages/courseDesc.jpeg"
   alt="tests"
   width="716" height="410" style="border-style: solid">
 </p>
@@ -61,7 +61,7 @@ Bootstrap5
 
 ### Course page for enrolled user -
 <p align="center">
-<img src="./demoImages/enroll.png"
+<img src="./demoImages/enroll.jpeg"
   alt="tests"
   width="716" height="410" style="border-style: solid">
 </p>
@@ -70,7 +70,7 @@ Bootstrap5
 
 ### Add a course page -
 <p align="center">
-<img src="./demoImages/newCourse.png"
+<img src="./demoImages/newCourse.jpeg"
   alt="test"
   width="716" height="410" style="border-style: solid">
 </p>
@@ -79,7 +79,7 @@ Bootstrap5
 
 ### All courses for a techaer -
 <p align="center">
-<img src="./demoImages/teachCourse.png"
+<img src="./demoImages/teachCourse.jpeg"
   alt="test"
   width="716" height="800" style="border-style: solid">
 </p>
@@ -88,7 +88,7 @@ Bootstrap5
 
 ### Profile page -
 <p align="center">
-<img src="./demoImages/profile.png"
+<img src="./demoImages/profile.jpeg"
   alt="test"
   width="716" height="410" style="border-style: solid">
 </p>
