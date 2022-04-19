@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.openTitle,
   },
   details: {
-    margin: '16px',
     marginLeft: 'auto',
     marginRight: '5px'
   },
