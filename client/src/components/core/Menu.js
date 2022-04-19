@@ -18,9 +18,9 @@ const isActive = (location, path) => {
 }
 const isPartActive = (location, path) => {
   if (location.pathname.includes(path))
-    return {color: '#fffde7', backgroundColor: '#f57c00', marginRight:10, textDecoration: 'none'}
+    return {color: '#fffde7', backgroundColor: '#f57c00', marginRight:10}
   else
-    return {color: '#616161', backgroundColor: '#fffde7', border:'1px solid #f57c00', marginRight:10, textDecoration: 'none'}
+    return {color: '#616161', backgroundColor: '#fffde7', border:'1px solid #f57c00', marginRight:10}
 }
 
 const useStyles = makeStyles({
@@ -60,7 +60,7 @@ const Menu = () => {
       }
       {
         auth.isAuthenticated() && (<span>
-          {auth.isAuthenticated().user.educator && (<Link to="/teach/courses"><Button style={isPartActive(location, "/teach/")} ><Library/> Teach</Button></Link>)}
+          {auth.isAuthenticated().user.educator && (<Link to="/teach/courses" style={{textDecoration: 'none'}}><Button style={isPartActive(location, "/teach/")} ><Library/> Teach</Button></Link>)}
           <Link to={"/user/" + auth.isAuthenticated().user._id} style={{textDecoration: 'none'}}>
             <Button style={isActive(location, "/user/" + auth.isAuthenticated().user._id)}>My Profile</Button>
           </Link>

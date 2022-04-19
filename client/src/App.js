@@ -23,7 +23,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/user/:userId" element={<Profile/>} />
-        <Route path="/course/:courseId" component={Course} />
+        <Route path="/course/:courseId" element={<Course/>} />
 
         <Route element={<ProtectedRoute/>}>
           <Route path="/user/edit/:userId" element={<EditProfile/>} />

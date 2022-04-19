@@ -158,7 +158,7 @@ export default function EditCourse ({match}) {
   }
     const imageUrl = course._id
           ? `/api/courses/photo/${course._id}?${new Date().getTime()}`
-          : '/api/courses/defaultphoto'
+          : ''
     return (
         <div className={classes.root}>
               <Card className={classes.card}>

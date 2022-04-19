@@ -17,7 +17,8 @@ exports.create = (req, res) => {
     let course = new Course(fields)
     course.instructor= req.profile
     if(files.image){
-      course.image.data = fs.readFileSync(files.image.path)
+      console.log(files)
+      course.image.data = fs.readFileSync(files.image.filepath)
       course.image.contentType = files.image.type
     }
     try {
@@ -82,7 +83,7 @@ exports.update = async (req, res) => {
     }
     course.updated = Date.now()
     if(files.image){
-      course.image.data = fs.readFileSync(files.image.path)
+      course.image.data = fs.readFileSync(files.image.filepath)
       course.image.contentType = files.image.type
     }
     try {
@@ -159,7 +160,9 @@ exports.photo = (req, res, next) => {
     res.set("Content-Type", req.course.image.contentType)
     return res.send(req.course.image.data)
   }
-  next()
+  else {
+    return res.send("");
+  }
 }
 exports.defaultPhoto = (req, res) => {
   return res.sendFile(process.cwd()+defaultImage)

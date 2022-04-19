@@ -16,7 +16,7 @@ import Avatar from '@material-ui/core/Avatar'
 import ListItemText from '@material-ui/core/ListItemText'
 import {read, update} from './api-course.js'
 import {enrollmentStats} from './../enrollment/api-enrollment'
-import {Link, Navigate} from 'react-router-dom'
+import {Link, Navigate, useParams} from 'react-router-dom'
 import auth from './../auth/auth-helper'
 import DeleteCourse from './DeleteCourse'
 import Divider from '@material-ui/core/Divider'
@@ -92,6 +92,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Course ({match}) {
   const classes = useStyles()
+  const params = useParams();
   const [stats, setStats] = useState({})
   const [course, setCourse] = useState({instructor:{}})
   const [values, setValues] = useState({
@@ -104,7 +105,7 @@ export default function Course ({match}) {
       const abortController = new AbortController()
       const signal = abortController.signal
   
-      read({courseId: match.params.courseId}, signal).then((data) => {
+      read({courseId: params.courseId}, signal).then((data) => {
         if (data.error) {
           setValues({...values, error: data.error})
         } else {
@@ -114,12 +115,12 @@ export default function Course ({match}) {
     return function cleanup(){
       abortController.abort()
     }
-  }, [match.params.courseId])
+  }, [params.courseId])
   useEffect(() => {
     const abortController = new AbortController()
     const signal = abortController.signal
 
-    enrollmentStats({courseId: match.params.courseId}, {t:jwt.token}, signal).then((data) => {
+    enrollmentStats({courseId: params.courseId}, {t:jwt.token}, signal).then((data) => {
       if (data.error) {
         setValues({...values, error: data.error})
       } else {
@@ -129,7 +130,7 @@ export default function Course ({match}) {
     return function cleanup(){
       abortController.abort()
     }
-  }, [match.params.courseId])
+  }, [params.courseId])
   const removeCourse = (course) => {
     setValues({...values, redirect:true})
   }
@@ -145,7 +146,7 @@ export default function Course ({match}) {
     let courseData = new FormData()
       courseData.append('published', true)
       update({
-          courseId: match.params.courseId
+          courseId: params.courseId
         }, {
           t: jwt.token
         }, courseData).then((data) => {

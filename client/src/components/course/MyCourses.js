@@ -120,15 +120,17 @@ export default function MyCourses() {
         <List dense>
           {courses.map((course, i) => {
             return (
-              <Link to={'/teach/course/' + course._id} key={i} style={{textDecoration: 'none'}}>
-                <ListItem button>
+              <>
+                <ListItem button key={i}>
+                  <Link to={'/teach/course/' + course._id} key={i} style={{textDecoration: 'none'}}>
                   <ListItemAvatar>
                     <Avatar
-                      src={"/api/courses/photo/" + course._id + '?'  + new Date().getTime()}
+                      src={"/api/courses/photo/" + course._id}
 
                       className={classes.avatar}
                     />
                   </ListItemAvatar>
+                  </Link>
                   <ListItemText
                     primary={
                       <Typography
@@ -148,7 +150,7 @@ export default function MyCourses() {
                   />
                 </ListItem>
                 <Divider />
-              </Link>
+                </>
             );
           })}
         </List>
