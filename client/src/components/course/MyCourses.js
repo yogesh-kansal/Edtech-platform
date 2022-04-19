@@ -8,7 +8,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import Icon from '@material-ui/core/Icon';
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import auth from './../auth/auth-helper';
@@ -106,12 +106,14 @@ export default function MyCourses() {
         <Typography type="title" className={classes.title}>
           Your Courses
           <span className={classes.addButton}>
-            <Link to="/teach/course/new">
-              <Button color="primary" variant="contained">
-                <AddIcon className={classes.leftIcon}>add_box</AddIcon> New
-                Course
-              </Button>
-            </Link>
+            <Button
+              color="primary"
+              variant="contained"
+              component={Link}
+              to="/teach/course/new"
+            >
+              <AddIcon className={classes.leftIcon}>add_box</AddIcon> New Course
+            </Button>
           </span>
         </Typography>
 
