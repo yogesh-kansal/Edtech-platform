@@ -52,7 +52,7 @@ Bootstrap5
 
 ### All courses for a techaer -
 <p align="center">
-<img src="./demoImages/teachCourse.jpeg"
+<img src="./demoImages/teachCourses.jpeg"
   alt="test"
   width="900" height="800" style="border-style: solid">
 </p>
